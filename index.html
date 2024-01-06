@@ -331,8 +331,19 @@ $sidebarLinks.forEach(link => {
 const toggle = document.getElementById('theme-toggle');
 
 function setToggleBg() {
+  // 获取并设置好背景色
   const bodyBgColor = getComputedStyle(document.body).backgroundColor;
   toggle.style.backgroundColor = bodyBgColor;
+  
+  // 自动跟随切换按钮内字体颜色
+  const isDark = document.body.classList.contains('dark-theme');
+  
+  if(isDark){
+    toggle.style.color = '#eee';
+  }
+  else {
+    toggle.style.color = '#333';
+  }
 }
 
 // 初始化
