@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.sidebar {
+  position: fixed;
+  top: 10%;
+  height: 100%;
+  font-size: 22px;
+}
+  
+.content {
+  margin-left: 270px; 
+  margin-right: 270px;
+  font-size: 28px;
+  line-height: 1.6;
+}
+  
+.sub-sidebar {
+  position: fixed;
+  display: none;
+  right:0;
+  top: 10%; 
+  font-size: 22px;
+}
+  
+.content h2 {
+  font-size: 32px;  
+}
 
+.content p {
+  font-size: 28px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 0; 
+}
+
+.section {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<h1>Fucking-Postgraduate-English-Mastery-Guide</h1>
+<div class="sidebar">
+  <ul id="top-menu">
+    <li><a href="#" data-target="intro">Introduction</a></li>
+    <li><a href="#" data-target="Cloze">Cloze</a></li>
+    <li><a href="#" data-target="Reading Comprehension">Reading Comprehension</a></li>
+    <li><a href="#" data-target="New question types">New question types</a></li>
+    <li><a href="#" data-target="Translation">Translation</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <div id="intro" class="section active">
+    <h2>Introduction</h2>
+   
+    <p>This is a purely personal strategy guide for the Postgraduate Entrance Examination English Test I, encompassing four sections: cloze tests, reading comprehension, new question types, and translation.
+
+    The purpose of this guide is to explore a method akin to exploiting a 'speedrun bug' in a game for quickly navigating through the actual English test questions.
+
+    It demands a modest vocabulary level—at least a high school reserve—to enhance comfort during the exercise.</p>
+
+    <p>No specific grammar expertise is required, but understanding a few key points is crucial:</p>
+
+    <p>1) In conversations, the focus of a foreigner's speech is often either at the beginning or the end. For instance, at the outset, I clarified that the subject here is the strategy guide, which is positioned at the beginning. When I mention there are several points, the emphasis is likely to follow—this is self-explanatory.</p>
+
+    <p>2) Argumentative sentences are the soul of an article, but you must discern between argumentation and description. "You are handsome" is descriptive; exaggeration is permissible here. "I am handsome" is a conclusion, devoid of exaggeration—it simply conveys a fact. Learning to differentiate these is essential.</p>
+
+    <p>3) Emotional judgment: when someone says, "You are nice, but, XXX," it implies a negative. You must learn to combine emotional words with conjunctions to make judgments. Also, note the use of progressive and coordinate structures, as in "You are good, you are very good, but there's better." Hence, the conjunctions and sentence relationships taught in elementary school Chinese may be surprisingly crucial here.</p>
+
+  </div>
+
+  <div id="Cloze" class="section">
+    <h2>Cloze</h2>
+    <p>Content for Cloze here...</p>
+  </div>
+
+  <div id="Reading Comprehension" class="section"> 
+    <h2>Reading Comprehension</h2>
+    <p>Content for Reading Comprehension here...</p>
+  </div>
+
+  <div id="Reading Comprehension-sub-menu" class="sub-sidebar">
+    <ul>
+        <li><a href="https://flying-chopiner.github.io/2018reading">2018reading</a></li>
+        <li><a href="https://flying-chopiner.github.io/2019reading">2019reading</a></li>
+    </ul>
+  </div>
+
+  <div id="New question types" class="section">
+    <h2>New question types</h2>
+    <p>Content for New question types here...</p>
+  </div>
+
+  <div id="Translation" class="section">
+    <h2>Translation</h2>
+    <p>Content for Translation here...</p>
+  </div>
+  
+</div>
+  
+<script>
+// 获取所有一级菜单项和对应的二级菜单
+const $sidebarLinks = document.querySelectorAll('.sidebar ul#top-menu li a');
+const $subMenus = document.querySelectorAll('.sub-sidebar');
+const $sections = document.querySelectorAll('.section');
+
+// 点击一级菜单项时显示对应的内容和二级菜单
+$sidebarLinks.forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // 激活对应的内容区域
+    const targetId = event.target.dataset.target;
+    $sections.forEach(section => {
+      section.style.display = section.id === targetId ? 'block' : 'none';
+    });
+
+    // 显示对应的二级菜单，隐藏其他所有二级菜单
+    $subMenus.forEach(subMenu => {
+      if (subMenu.id === targetId + '-sub-menu') {
+        subMenu.style.display = 'block';
+      } else {
+        subMenu.style.display = 'none';
+      }
+    });
+  });
+});
+  
+</script>
+
+</body>
+</html>
